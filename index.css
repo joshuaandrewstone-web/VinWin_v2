@@ -1,3 +1,66 @@
 .main-logo {
+<<<<<<< Updated upstream
     width: 100px;
 }
+=======
+    width: 150px;
+    border-radius: 25px;
+    margin-top: 20px;
+}
+
+.create-acc {
+    font-size: 30px;
+    color: #EF476F;
+    margin-bottom: 30px;
+}
+
+.main-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.main-label {
+    font-size: 20px;
+}
+
+.form-btn {
+    width: auto;
+    margin-bottom: 10px;
+    font-family: inherit;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 5px 10px;
+    color: #E0E2DB;
+    background-color: #EF476F;
+    border: none;
+    border-radius: 5px;
+}
+
+.submit-btn {
+    margin-top: 30px;
+}
+
+.start-btn {
+    font-size:30px;
+    padding: 15px 30px;
+}
+
+.form-btn:hover,
+.form-btn:active {
+    color: #E0E2DB;
+    background-color: #5B85AA;
+}
+
+.main-form-input {
+    margin-top: 5px;
+    margin-bottom: 10px;
+    padding: 2px 5px;
+    color: #E0E2DB;
+    background-color: #5B85AA;
+    border: none;
+    font-size: 16px;
+    border-radius: 5px;
+}
+
+>>>>>>> Stashed changes
