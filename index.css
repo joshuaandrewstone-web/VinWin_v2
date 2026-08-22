@@ -59,6 +59,11 @@
     margin-top: 30px;
 }
 
+.start-btn {
+    font-size: 30px;
+    padding: 15px 30px;
+}
+
 .form-btn:hover,
 .form-btn:active {
     color: #E0E2DB;
