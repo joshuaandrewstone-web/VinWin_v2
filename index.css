@@ -1,7 +1,12 @@
+
 .iceberg-regular {
     font-family: "Iceberg", sans-serif;
     font-weight: 400;
     font-style: normal;
+}
+
+.dark-amethyst {
+    color: #372248;
 }
 
 .container {
@@ -43,6 +48,9 @@
 }
 
 .form-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: auto;
     margin-bottom: 10px;
     font-family: inherit;
@@ -62,6 +70,12 @@
 .start-btn {
     font-size: 30px;
     padding: 15px 30px;
+    text-decoration: none;
+}
+
+.start-btn-container {
+    display: flex;
+    flex-direction: column;
 }
 
 .form-btn:hover,
