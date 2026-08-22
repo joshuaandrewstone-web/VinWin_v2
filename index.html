@@ -1,45 +1,52 @@
 <html>
-    <head>
-        <link href="index.css" rel="stylesheet" />
-    </head>
+<head>
+    <link href="index.css" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Iceberg&display=swap" rel="stylesheet">
+</head>
     <body>
         <div class="container">
             <header>
-                <img class="main-logo" src="./Images/Logo_Ai.png"/>
+                <img class="main-logo" src="./Images/Logo_Ai.png" />
             </header>
-            <form>
-                <h2>Create Account</h2>
-                <label for="UserName">
-                    Enter Username
+            <form class="main-form">
+                <h2 class="create-acc">Create Account</h2>
+                <label class="main-label" for="UserName">
+                    Create Username
                 </label>
                 <input type="text"
                        name="UserName"
                        id="UserName"
+                       class="main-form-input"
                        maxlength="10"
-                       minlength="3" 
-                       pattern="[a-zA-Z0-9]+"/>
+                       minlength="3"
+                       pattern="[a-zA-Z0-9]+" />
 
-                <label for="UserEmail">
+                <label class="main-label" for="UserEmail">
                     Enter Email
                 </label>
                 <input type="email"
                        name="UserEmail"
-                       id="UserEmail" />
+                       id="UserEmail"
+                       class="main-form-input" />
 
-                <label for="UserPassword">
-                    Enter Password
+                <label class="main-label" for="UserPassword">
+                    Create Password
                 </label>
                 <input type="password"
                        name="UserPassword"
                        id="UserPassword"
-                       minlength="6" />
+                       minlength="6"
+                       class="main-form-input" />
 
-                <button type="submit">Submit</button>
+                <button class="form-btn submit-btn" type="submit">Submit</button>
+                <button class="form-btn">Already Registered?</button>
             </form>
             <footer>
                 <h3>Contact me</h3>
                 <p>JoshuaAndrewStone@Gmail.com</p>
-                <p>+44 706320433</p>
+                <p>+44 7506320433</p>
             </footer>
         </div>
     </body>
