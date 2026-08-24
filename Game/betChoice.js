@@ -6,13 +6,35 @@ const optionOne = document.getElementById('option-choice-a');
 const optionTwo = document.getElementById('option-choice-b');
 const optionThree = document.getElementById('option-choice-c');
 
-const submitBtn = document.getElementById('submit-btn')
+const mainForm = document.getElementById('form-no-btn');
+const submitBtn = document.getElementById('submit-btn');
 
 OddsGenerator();
 
-buttonOne.addEventListener('click', function () {
+buttonOne.addEventListener('click', function (e) {
+    console.log(e.target.id);
+
     submitBtn.style.display = 'inline';
-    submitBtn.innerHTML = `you chose option 1`
+    submitBtn.classList.add('green-background');
+    submitBtn.innerHTML = `you chose Spurs`;
+
+    mainForm.style.display = 'none';
+})
+
+buttonTwo.addEventListener('click', function () {
+    submitBtn.style.display = 'inline';
+    submitBtn.classList.add('blue-background');
+    submitBtn.innerHTML = `you chose a draw`
+
+    mainForm.style.display = 'none';
+})
+
+buttonThree.addEventListener('click', function () {
+    submitBtn.style.display = 'inline';
+    submitBtn.classList.add('pink-background');
+    submitBtn.innerHTML = `you chose man utd`
+
+    mainForm.style.display = 'none';
 })
 
 function OddsGenerator() {
