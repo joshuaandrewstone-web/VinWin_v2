@@ -5,8 +5,44 @@
     font-style: normal;
 }
 
-.dark-amethyst {
+.green {
+    color: #2B9720;
+}
+
+.blue {
+    color: #5B85AA;
+}
+
+.linen {
+    color: #E0E2DB;
+}
+
+.purple {
     color: #372248;
+}
+
+.pink {
+    color: #EF476F;
+}
+
+.green-background {
+    background-color: #2B9720;
+}
+
+.blue-background {
+    background-color: #5B85AA;
+}
+
+.linen-background {
+    background-color: #E0E2DB;
+}
+
+.purple-background {
+    background-color: #372248;
+}
+
+.pink-background {
+    background-color: #EF476F;
 }
 
 .container {
