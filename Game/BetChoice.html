@@ -1,8 +1,62 @@
 <html>
-    <head>
+<head>
+    <link href="../index.css" rel="stylesheet" />
+    <link href="game.css" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Iceberg&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <img class="main-logo" src="../Images/Logo_Ai.png" />
+        </header>
+        <main>
+            <form class="main-form game-option-form">
+                <div class="game-option-full-container" id="option-a">
+                    <h3>Tottenham to Win</h3>
+                    <label class="game-option-containers green-background game-option-text" id="option-choice-a" for="option-one">Placeholder Odds</label>
+                    <input type="radio"
+                           name="bet-option"
+                           id="option-one"
+                           class="bet-option"
+                           hidden />
+                </div>
 
-    </head>
-    <body>
-        <h1>test</h1>
-    </body>
+                <div class="game-option-full-container" id="option-b">
+                    <h3>Draw</h3>
+                    <label class="game-option-containers blue-background game-option-text" id="option-choice-b" for="option-two">Placeholder Odds</label>
+                    <input type="radio"
+                           name="bet-option"
+                           id="option-two"
+                           class="bet-option"
+                           hidden />
+                </div>
+
+                <div class="game-option-full-container" id="option-c">
+                    <h3>Man Utd to Win</h3>
+                    <label class="game-option-containers pink-background game-option-text" id="option-choice-c" for="option-three">Placeholder Odds</label>
+                    <input type="radio"
+                           name="bet-option"
+                           id="option-three"
+                           class="bet-option"
+                           hidden />
+                </div>
+
+                <button type="submit" class="game-submit-btn" id="submit-btn">
+                    
+                </button>
+
+            </form>
+        </main>
+        <footer>
+            <h3>Contact me</h3>
+            <p>JoshuaAndrewStone@Gmail.com</p>
+            <p>+44 7506320433</p>
+        </footer>
+    </div>
+    <script src="betChoice.js">
+
+    </script>
+</body>
 </html>
