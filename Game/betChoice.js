@@ -23,26 +23,20 @@ document.addEventListener('click', function (e) {
     if (e.target.dataset.click) {
         if (e.target.dataset.click === "1") {
 
-            const teamUpdate = teamsData.find(function (team) {
-                return team.id === 1
-            })
+            const teamUpdate = teamsData.find(team => team.id === 1)
 
             teamUpdate.isSelected = true;
         }
 
         if (e.target.dataset.click === "2") {
-            const teamUpdate = teamsData.find(function (team) {
-                return team.id === 2
-            })
+            const teamUpdate = teamsData.find(team => team.id === 2)
 
             teamUpdate.isSelected = true;
         }
 
         if (e.target.dataset.click === "3") {
 
-            const teamUpdate = teamsData.find(function (team) {
-                return team.id === 3
-            })
+            const teamUpdate = teamsData.find(team => team.id === 3)
 
             teamUpdate.isSelected = true;
         }
@@ -135,6 +129,4 @@ function GeneratePage(teamsData) {
     generateForm.innerHTML = innerHtml;
 }
 
-function betPage() {
-    console.log("hello")
-}
+betPage = () => console.log("hello")
