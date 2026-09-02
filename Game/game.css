@@ -75,3 +75,7 @@
     border-width: 3px;
     border-style: dotted;
 }
+
+.isDisabled {
+    display: none;
+}
