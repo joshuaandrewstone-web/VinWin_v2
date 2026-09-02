@@ -1,5 +1,6 @@
 
 const generateForm = document.getElementById('main-form');
+const generateFormButtons = document.getElementById('main-form-buttons');
 
 let teamsData = GetPremierLeagueTeams();
 
@@ -16,28 +17,21 @@ const optionTwo = document.getElementById('option-choice-2');
 const optionThree = document.getElementById('option-choice-3');
 
 document.addEventListener('click', function (e) {
-    teamsData.forEach(function (team) {
-        team.isSelected = false;
-    })
+    teamsData.forEach(team => team.isSelected = false);
 
     if (e.target.dataset.click) {
         if (e.target.dataset.click === "1") {
-
             const teamUpdate = teamsData.find(team => team.id === 1)
-
             teamUpdate.isSelected = true;
         }
 
         if (e.target.dataset.click === "2") {
             const teamUpdate = teamsData.find(team => team.id === 2)
-
             teamUpdate.isSelected = true;
         }
 
         if (e.target.dataset.click === "3") {
-
             const teamUpdate = teamsData.find(team => team.id === 3)
-
             teamUpdate.isSelected = true;
         }
 
@@ -45,8 +39,10 @@ document.addEventListener('click', function (e) {
     }
 
     if (e.target.dataset.confirm) {
-        console.log("confirm")
     } else if (e.target.dataset.return) {
+        teamsData.forEach(team => team.isSelected = false);
+        generateForm.classList.remove('isDisabled');
+        generateFormButtons.classList.add('isDisabled');
         GeneratePage(teamsData);
     }
     
@@ -92,17 +88,36 @@ function GetPremierLeagueTeams() {
     return teamsData;
 }
 function GeneratePage(teamsData) {
-    let innerHtml = '';
+    let innerHTML = '';
 
-    teamsData.forEach(function (team) {
+    teamsData.forEach(team => {
         let isSelected = '';
-        let isDisabled = '';
-
+        
         if (team.isSelected) {
+            GenerateSelectedPage(team);
+            generateFormButtons.classList.remove('isDisabled');
             isSelected = 'isSelected';
-            isDisabled = 'isDisabled'
-            innerHtml +=
-                `<div class="button-container pink-background">
+        } 
+
+        innerHTML += `<div class="game-option-full-container" id="option-${team.id}">
+                        <h3>${team.name} to Win</h3>
+                        <label class="game-option-containers ${team.color}-background game-option-text ${isSelected}" data-click="${team.id}" id="option-choice-${team.id}" for="${team.name}">${team.odds}</label>
+                        <input type="radio"
+                            name="${team.name}"
+                            id="${team.id}"
+                            value="${team.name}"
+                            class="bet-option"
+                            hidden />
+                    </div>`
+    });
+
+    generateForm.innerHTML = innerHTML;
+}
+
+function GenerateSelectedPage(team) {
+    let innerHTML = '';
+    
+    innerHTML += `<div class="button-container pink-background">
                     <a type="button" href="./BetPlacement.html" data-confirm="confirm" class="game-betChoice-btns">
                         Bet on ${team.name}?
                     </a>
@@ -111,22 +126,7 @@ function GeneratePage(teamsData) {
                     </button>
                 </div>
                 `
-        }
 
-        innerHtml +=
-            `<div class="game-option-full-container" id="option-${team.id} ${isDisabled}">
-                <h3>${team.name} to Win</h3>
-                <label class="game-option-containers ${team.color}-background game-option-text ${isSelected}" data-click="${team.id}" id="option-choice-${team.id}" ${isDisabled} for="${team.name}">${team.odds}</label>
-                <input type="radio"
-                    name="${team.name}"
-                    id="${team.id}"
-                    value="${team.name}"
-                    class="bet-option"
-                    hidden />
-            </div>`
-    })
-
-    generateForm.innerHTML = innerHtml;
+    generateFormButtons.innerHTML = innerHTML;
+    generateForm.classList.add('isDisabled');
 }
-
-betPage = () => console.log("hello")
