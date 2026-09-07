@@ -1,0 +1,40 @@
+<html>
+    <head>
+        <link href="../../index.css" rel="stylesheet" />
+        <link href="../../game/game.css" rel="stylesheet" />
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Iceberg&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <div class="container">
+            <header>
+                <img class="main-logo" src="../../Images/Logo_Ai.png" />
+            </header>
+            <main>
+                <div class="currentBet">
+                    <h3>Your current bet</h3>
+                    <h2 id="current-bet"></h2>
+                </div>
+                <div class="account-balance start-btn-container">
+                    <p>Funds:</p>
+                    <p class="dark-amethyst" id="funds-amount"> £</p>
+                </div>
+                <form>
+                    <label for="bet-amount">Bet Amount:</label>
+                    <input type="number" name="bet-amount"/>
+                </form>
+                <div class="returns-container start-btn-container">
+                    <p>Potential Returns:</p>
+                    <p class="dark-amethyst" id="potential-returns"> £</p>
+                </div>
+            </main>
+            <footer>
+                <h3>Contact me</h3>
+                <p>JoshuaAndrewStone@Gmail.com</p>
+                <p>+44 7506320433</p>
+            </footer>
+        </div>
+        <script src="./BetPlacement.js"></script>
+    </body>
+</html>

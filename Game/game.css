@@ -76,6 +76,13 @@
     border-style: dotted;
 }
 
-.isDisabled {
-    display: none;
+.account-balance {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #E0E2DB;
+    top: 0;
+    right: 0;
+    margin: 10px;
+    font-size: 20px;
 }
