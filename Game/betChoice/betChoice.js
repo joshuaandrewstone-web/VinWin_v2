@@ -16,6 +16,8 @@ const optionOne = document.getElementById('option-choice-1');
 const optionTwo = document.getElementById('option-choice-2');
 const optionThree = document.getElementById('option-choice-3');
 
+console.log(localStorage.getItem('userData'));
+
 document.addEventListener('click', function (e) {
     teamsData.forEach(team => team.isSelected = false);
 
@@ -101,7 +103,7 @@ function GeneratePage(teamsData) {
 
         innerHTML += `<div class="game-option-full-container" id="option-${team.id}">
                         <h3>${team.name} to Win</h3>
-                        <label class="game-option-containers ${team.color}-background game-option-text ${isSelected}" data-click="${team.id}" id="option-choice-${team.id}" for="${team.name}">${team.odds}</label>
+                        <label class="game-option-containers ${team.color}-background game-option-text ${isSelected}" data-click="${team.id}" id="option-choice-${team.id}" for="${team.name}">${team.odds}%</label>
                         <input type="radio"
                             name="${team.name}"
                             id="${team.id}"
@@ -118,7 +120,7 @@ function GenerateSelectedPage(team) {
     let innerHTML = '';
     
     innerHTML += `<div class="button-container pink-background">
-                    <a type="button" href="./BetPlacement.html" data-confirm="confirm" class="game-betChoice-btns">
+                    <a type="button" href="../../Game/betPlacement/BetPlacement.html" data-confirm="confirm" class="game-betChoice-btns">
                         Bet on ${team.name}?
                     </a>
                     <button type="button" data-return="return" class="game-betChoice-btns">
