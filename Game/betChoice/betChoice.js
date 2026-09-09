@@ -50,6 +50,12 @@ document.addEventListener('click', function (e) {
     
 })
 
+document.getElementById("requestOdds").addEventListener("click", function() {
+    fetch("https://api.the-odds-api.com/v4/sports/soccer_epl/odds?regions=uk&oddsFormat=decimal&apiKey=79bb14dc18b73d74906804279415a38a")
+        .then(request => request.json())
+        .then(data => console.log(data))
+})
+
 
 function GetPremierLeagueTeams() {
     let teamsData =
