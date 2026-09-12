@@ -4,7 +4,7 @@ const generateFormButtons = document.getElementById('main-form-buttons');
 
 let teamsData = GetPremierLeagueTeams();
 
-GeneratePage(teamsData);
+requestOdds();
 
 const submitBtn = document.getElementById('submit-btn');
 
@@ -15,8 +15,6 @@ const buttonThree = document.getElementById('option-3');
 const optionOne = document.getElementById('option-choice-1');
 const optionTwo = document.getElementById('option-choice-2');
 const optionThree = document.getElementById('option-choice-3');
-
-console.log(localStorage.getItem('userData'));
 
 document.addEventListener('click', function (e) {
     teamsData.forEach(team => team.isSelected = false);
@@ -50,18 +48,29 @@ document.addEventListener('click', function (e) {
     
 })
 
-document.getElementById("requestOdds").addEventListener("click", function() {
-    fetch("https://api.the-odds-api.com/v4/sports/soccer_epl/odds?regions=uk&oddsFormat=decimal&apiKey=79bb14dc18b73d74906804279415a38a")
+function requestOdds() {
+    fetch("https://api.the-odds-api.com/v4/sports/soccer_epl/odds?regions=uk&oddsFormat=decimal&apiKey=79bb14dc18b73d74906804279415a38a", {method: "get"})
         .then(request => request.json())
-        .then(data => console.log(data))
-})
+        .then(data => {
+            let teamData = (data[0].bookmakers.find(bookmaker => bookmaker.key === "leovegas").markets[0].outcomes)
 
+            teamsData[0].name = teamData[0].name;
+            teamsData[0].odds = teamData[0].price;
+
+            teamsData[1].odds = teamData[2].price;
+
+            teamsData[2].name = teamData[1].name;
+            teamsData[2].odds = teamData[1].price;
+
+            GeneratePage(teamsData);
+        })
+}
 
 function GetPremierLeagueTeams() {
     let teamsData =
     [
         {
-            name: 'Spurs',
+            name: '',
             id: 1,
             color: 'green',
             isSelected: false,
@@ -75,23 +84,13 @@ function GetPremierLeagueTeams() {
             odds: 0
         },
         team2 = {
-            name: 'United',
+            name: '',
             id: 3,
             color: 'pink',
             isSelected: false,
             odds: 0
         }
     ]
-
-    let bet1 = Math.floor(Math.random() * 100);
-    let bet2 = Math.floor(Math.random() * (100 - bet1));
-    let bet3 = 100 - bet2 - bet1;
-
-    const betArray = [bet1, bet2, bet3];
-
-    for (let i = 0; i < teamsData.length; i++) {
-        teamsData[i].odds = betArray[i]
-    }
 
     return teamsData;
 }
@@ -109,7 +108,7 @@ function GeneratePage(teamsData) {
 
         innerHTML += `<div class="game-option-full-container" id="option-${team.id}">
                         <h3>${team.name} to Win</h3>
-                        <label class="game-option-containers ${team.color}-background game-option-text ${isSelected}" data-click="${team.id}" id="option-choice-${team.id}" for="${team.name}">${team.odds}%</label>
+                        <label class="game-option-containers ${team.color}-background game-option-text ${isSelected}" data-click="${team.id}" id="option-choice-${team.id}" for="${team.name}">${team.odds}</label>
                         <input type="radio"
                             name="${team.name}"
                             id="${team.id}"
