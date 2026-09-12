@@ -23,6 +23,7 @@ body {
 
 /* Utility */
 .isDisabled { display: none; }
+.block { display: block; }
 .green { color: #2B9720; }
 .blue { color: #5B85AA; }
 .linen { color: #E0E2DB; }
@@ -46,7 +47,7 @@ body {
         ". main ."
         ". foot .";
     grid-template-columns: auto  1fr  auto;
-    align-items: end;
+   
 }
 
 .main-label,
@@ -59,7 +60,10 @@ body {
 
 /* Grid areas */
 .main-header { grid-area: logo; }
-.main        { grid-area: main; }
+.main        
+{ 
+    grid-area: main; 
+}
 .footer      
 { 
     grid-area: foot;
@@ -109,7 +113,12 @@ body {
     border-radius: 0.4rem;
 }
 
-.form-btn:hover {
+.submit-btn {
+    margin-top: 3rem;
+}
+
+.form-btn:hover,
+.form-btn:focus {
     background-color: #5B85AA;
     border: 3px solid #372248;
 }
@@ -117,7 +126,7 @@ body {
 /* Inputs */
 .main-form-input {
     width: 100%;
-    max-width: 400px;
+    max-width: 80%;
     padding: 1rem;
     font-size: 1rem;
     background-color: #5B85AA;
@@ -159,25 +168,61 @@ footer {
 }
 
 .right-desktop-img {
+    display: flex;
+    justify-self: end;
     grid-area: right;
     grid-row: 1 / -1;
-    margin-right: 0;
     background-image: url("./Images/RightBorderDesktop.png");
 }
 
+.fund-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.user-funds-label {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.fund-input {
+    font-family: inherit;
+    text-align: center;
+    font-size: 1.5rem;
+    border-radius: 0.5rem;
+    margin-bottom: 2rem;
+}
+
+.start-btn-container {
+    font-size: 2rem;
+}
+
 @media (min-width: 768px) {
+    html {
+    }
+
     .left-desktop-img,
     .right-desktop-img {
-        display: inline-block;
+        display: block;
+        height: 100%;
+        width: 60%;
     }
 
     .container {
-        display: grid;
-        grid-template-columns: auto minmax(300px, auto) auto;
-        grid-template-rows: max-content auto max-content;
+        border: 1px solid red;
+        grid-template-columns: 1fr 1fr 1fr;
         grid-template-areas:
             "left logo right"
-            "left main right"
-            "left foot right";
+            ".... main ...."
+            ".... foot ....";
+    }
+
+    .main-form-input {
+        max-width: 60%;
+    }
+
+    .form-btn {
+        max-width: 60%;
     }
 }

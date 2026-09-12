@@ -1,14 +1,8 @@
-.game-option-form {
-    display: flex;
-    justify-content: space-between;
-    height: 600px;
-    width: 300px;
-}
 
 .game-option-full-container {
     border: 1px solid #E0E2DB;
-    border-radius: 15px;
-    margin-bottom: 10px;
+    border-radius: 1rem;
+    margin-bottom: 0.7rem;
 }
 
 .game-option-containers {
@@ -17,8 +11,8 @@
     justify-content: center;
     align-items: stretch;
     border: 1px solid white;
-    height: 150px;
-    width: 300px;
+    height: 20%;
+    width: 100%;
     border-radius: 15px;
 }
 
@@ -28,7 +22,7 @@
 }
 
 .game-option-text {
-    font-size: 50px;
+    font-size: 3rem;
 }
 
 .game-betChoice-btns {
@@ -36,11 +30,11 @@
     align-items: center;
     justify-content: center;
     position: relative;
-    padding: 15px 30px;
+    padding: 1rem 2rem;
     border: none;
-    border-radius: 50px;
+    border-radius: 3rem;
     font-family: inherit;
-    font-size: 30px;
+    font-size: 2rem;
     opacity: 100%;
     color: #372248;
     background-color: #E0E2DB;
@@ -58,11 +52,11 @@
     flex-direction: column;
     align-items: center;
     justify-content: space-evenly;
-    height: 150px;
+    height: 20%;
     position: absolute;
     left: 0;
     right: 0;
-    top: 300px;
+    top: 30%;
     bottom: 0;
     margin: 0 auto;
     height: 200px;
@@ -72,7 +66,7 @@
 }
 
 .isSelected {
-    border-width: 3px;
+    border-width: 0.2rem;
     border-style: dotted;
 }
 
@@ -80,9 +74,9 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 1px solid #E0E2DB;
+    border: 0.1rem solid #E0E2DB;
     top: 0;
     right: 0;
-    margin: 10px;
-    font-size: 20px;
+    margin: 0.5rem;
+    font-size: 1.5rem;
 }
