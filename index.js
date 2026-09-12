@@ -9,11 +9,12 @@ mainForm.addEventListener('submit', function (e) {
     createUser(mainFormData);
 
     document.getElementById('main-form').innerHTML = `
-        <div id="main-form-buttons">
-            <div class="form-fund-btn start-btn flex-container">
+        <div class="main-form-buttons" id="main-form-buttons">
+            <div class="fund-container">
                 <form>
-                    <label for="UserFunds">Starting Funds:</label>
-                    <input class="fund-input" type="number" name="UserFunds" value="100" />
+                    <label class="user-funds-label" for="UserFunds">Starting Funds:</label>
+                    <input class="main-form-input fund-input" type="number" name="UserFunds" value="100" />
+                    <p>Minimum of £20 required to open account.</p>
                     <button class="form-btn submit-btn fund-submit-btn" id="add-funds-btn" type="submit">Add Funds</button>
                 </form>
             </div>
@@ -33,7 +34,7 @@ function startGameButtons() {
     <a href="./Game/betChoice/betChoice.html" class="form-btn start-btn" onclick="addFunds(${mainFormData})">
         <span class="start-btn-container">
             <span>Start Game</span>
-            <span class="dark-amethyst">${mainFormData.get('UserName')}</span>
+            <span class="block">${mainFormData.get('UserName')}</span>
         </span>
     </a>`
 }
