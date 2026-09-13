@@ -1,5 +1,6 @@
 <html>
     <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="../../index.css" rel="stylesheet" />
         <link href="../../game/game.css" rel="stylesheet" />
         <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -8,28 +9,33 @@
     </head>
     <body>
         <div class="container">
-            <header>
+            <header class="main-header">
                 <img class="main-logo" src="../../Images/Logo_Ai.png" />
             </header>
-            <main>
+            <main class="main">
                 <div class="currentBet">
                     <h3>Your current bet</h3>
-                    <h2 id="current-bet"></h2>
+                    <h2 id="current-bet">No bet selected</h2>
+                    <p>Odds: <span class="money-amount" id="current-odds">0.00</span></p>
                 </div>
+
                 <div class="account-balance start-btn-container">
                     <p>Funds:</p>
-                    <p class="dark-amethyst" id="funds-amount"> £</p>
+                    <p class="money-amount" id="funds-amount">£0.00</p>
                 </div>
-                <form>
-                    <label for="bet-amount">Bet Amount:</label>
-                    <input type="number" name="bet-amount"/>
+
+                <form class="main-form bet-placement-form">
+                    <label class="main-label" for="bet-amount">Bet Amount:</label>
+                    <input class="main-form-input fund-input" id="bet-amount" type="number" name="bet-amount" min="1" step="0.01" value="10" />
+                    <button type="submit" class="form-btn submit-btn">Place Bet</button>
                 </form>
+
                 <div class="returns-container start-btn-container">
                     <p>Potential Returns:</p>
-                    <p class="dark-amethyst" id="potential-returns"> £</p>
+                    <p class="money-amount" id="potential-returns">£0.00</p>
                 </div>
             </main>
-            <footer>
+            <footer class="footer">
                 <h3>Contact me</h3>
                 <p>JoshuaAndrewStone@Gmail.com</p>
                 <p>+44 7506320433</p>

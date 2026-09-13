@@ -31,7 +31,7 @@ function startGameButtons() {
     document.getElementById('main-form-buttons').classList.add('isDisabled'); 
 
     document.getElementById('main-form').innerHTML = `
-    <a href="./Game/betChoice/betChoice.html" class="form-btn start-btn" onclick="addFunds(${mainFormData})">
+    <a href="./Game/betMatches/betMatches.html" class="form-btn start-btn" onclick="addFunds(${mainFormData})">
         <span class="start-btn-container">
             <span>Start Game</span>
             <span class="block">${mainFormData.get('UserName')}</span>

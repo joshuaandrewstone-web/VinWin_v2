@@ -12,7 +12,7 @@ img {
 body {
     margin: 0;
     padding: 0;
-    font-family: "Iceberg", sans-serif;
+    font-family: "Iceberg", Arial, Helvetica, sans-serif;
     color: #E0E2DB;
     background: #372248;
 }
@@ -89,6 +89,10 @@ body {
 
 .main-label {
     font-size: 1.4rem;
+}
+
+.currency {
+    font-family: ar;
 }
 
 /* Form layout */

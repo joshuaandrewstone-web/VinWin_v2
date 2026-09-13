@@ -2,7 +2,7 @@
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="../../index.css" rel="stylesheet" />
-        <link href="../../game/game.css" rel="stylesheet" />
+        <link href="../game.css" rel="stylesheet" />
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Iceberg&display=swap" rel="stylesheet">
@@ -13,17 +13,10 @@
                 <img class="main-logo" src="../../Images/Logo_Ai.png" />
             </header>
             <main class="main">
-                <div id="main-form">
-                    <form class="main-form game-option-form">
-                        <div id="form-no-btn">
-
-                        </div>
-                    </form>
+                <div class="bet-matches-panel">
+                    <h2 class="create-acc">Choose a Match</h2>
+                    <div id="match-list" class="match-list"></div>
                 </div>
-                <div id="main-form-buttons">
-
-                </div>
-                <button id="requestOdds">odds</button>
             </main>
             <footer class="footer">
                 <h3>Contact me</h3>
@@ -31,8 +24,6 @@
                 <p>+44 7506320433</p>
             </footer>
         </div>
-        <script src="../../Game/betChoice/betChoice.js">
-
-        </script>
+        <script src="./betMatches.js"></script>
     </body>
 </html>

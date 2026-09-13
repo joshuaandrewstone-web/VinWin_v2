@@ -2,7 +2,21 @@
 const generateForm = document.getElementById('main-form');
 const generateFormButtons = document.getElementById('main-form-buttons');
 
+generateFormButtons.classList.add('isDisabled');
+
 let teamsData = GetPremierLeagueTeams();
+
+const selectedMatch = JSON.parse(localStorage.getItem('selectedMatch') || 'null');
+
+if (selectedMatch && selectedMatch.label) {
+    const matchTitle = document.createElement('h2');
+    matchTitle.className = 'selected-match-label';
+    matchTitle.textContent = selectedMatch.label;
+    const formShell = document.getElementById('main-form');
+    if (formShell && formShell.firstElementChild) {
+        formShell.insertBefore(matchTitle, formShell.firstElementChild);
+    }
+}
 
 requestOdds();
 
@@ -52,7 +66,21 @@ function requestOdds() {
     fetch("https://api.the-odds-api.com/v4/sports/soccer_epl/odds?regions=uk&oddsFormat=decimal&apiKey=79bb14dc18b73d74906804279415a38a", {method: "get"})
         .then(request => request.json())
         .then(data => {
-            let teamData = (data[0].bookmakers.find(bookmaker => bookmaker.key === "leovegas").markets[0].outcomes)
+            let matchChoice = data[getRandomNumber(data.length)];
+
+            if (selectedMatch) {
+                const matchFromStorage = data.find(game => {
+                    const homeMatches = game.home_team && selectedMatch.home ? game.home_team.toLowerCase() === selectedMatch.home.toLowerCase() : false;
+                    const awayMatches = game.away_team && selectedMatch.away ? game.away_team.toLowerCase() === selectedMatch.away.toLowerCase() : false;
+                    return homeMatches && awayMatches;
+                });
+
+                if (matchFromStorage) {
+                    matchChoice = matchFromStorage;
+                }
+            }
+
+            let teamData = (matchChoice.bookmakers.find(bookmaker => bookmaker.key === "leovegas").markets[0].outcomes)
 
             teamsData[0].name = teamData[0].name;
             teamsData[0].odds = teamData[0].price;
@@ -64,6 +92,10 @@ function requestOdds() {
 
             GeneratePage(teamsData);
         })
+}
+
+function getRandomNumber(length) {
+    return Math.floor((Math.random() * length))
 }
 
 function GetPremierLeagueTeams() {
@@ -101,6 +133,12 @@ function GeneratePage(teamsData) {
         let isSelected = '';
         
         if (team.isSelected) {
+            localStorage.setItem('selectedBet', JSON.stringify({
+                id: team.id,
+                name: team.name,
+                odds: Number(team.odds) || 0,
+                color: team.color
+            }));
             GenerateSelectedPage(team);
             generateFormButtons.classList.remove('isDisabled');
             isSelected = 'isSelected';
